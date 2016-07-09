@@ -1,0 +1,29 @@
+题目描述
+
+定义栈的数据结构，请在该类型中实现一个能够得到栈最小元素的min函数。 
+
+class Solution {
+public:
+    void push(int value) {
+        s_data.push(value);
+        if(s_min_data.size()==0 || value < s_min_data.top())
+            s_min_data.push(value);
+        else
+            s_min_data.push(s_min_data.top());
+    }
+    void pop() {
+        if(s_data.size() > 0 && s_min_data.size() > 0){
+            s_data.pop();
+            s_min_data.pop();
+        }
+    }
+    int top() {
+        return s_data.top();
+    }
+    int min() {
+        return s_min_data.top();
+    }
+private:
+    stack<int> s_data;
+    stack<int> s_min_data;
+};
