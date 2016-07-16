@@ -1,0 +1,38 @@
+题目描述
+
+给定一颗二叉搜索树，请找出其中的第k大的结点。例如， 5 / \ 3 7 /\ /\ 2 4 6 8 中，按结点数值大小顺序第三个结点的值为4。 
+
+////使用中序遍历的方式，k--寻找target
+/*
+struct TreeNode {
+    int val;
+    struct TreeNode *left;
+    struct TreeNode *right;
+    TreeNode(int x) :
+            val(x), left(NULL), right(NULL) {
+    }
+};
+*/
+class Solution {
+public:
+    TreeNode* KthNode(TreeNode* pRoot, unsigned int k)
+    {
+        if(pRoot == NULL || k == 0)
+            return NULL;
+        return KthNodeCore(pRoot, k);
+    }
+	TreeNode* KthNodeCore(TreeNode* root, unsigned int &k){
+        TreeNode *target = NULL;
+        if(root->left != NULL)
+            target = KthNodeCore(root->left, k);
+        if(target == NULL){
+            if(k == 1)
+                target = root;
+            k--;
+        }
+        if(target == NULL && root->right != NULL){
+            target = KthNodeCore(root->right, k);
+        }
+        return target;
+    }
+};
