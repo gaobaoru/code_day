@@ -1,0 +1,54 @@
+题目描述
+
+在一个排序的链表中，存在重复的结点，请删除该链表中重复的结点，重复的结点不保留，返回链表头指针。
+例如，链表1->2->3->3->4->4->5 处理后为 1->2->5
+
+//注意可能删除头结点的情况，要保证每次pPre要和下一个没有重复的结点连接在一起
+/*
+struct ListNode {
+    int val;
+    struct ListNode *next;
+    ListNode(int x) :
+        val(x), next(NULL) {
+    }
+};
+*/
+class Solution {
+public:
+    ListNode* deleteDuplication(ListNode* pHead)
+    {
+		return DeleteDuplication(&pHead);
+    }
+    ListNode* DeleteDuplication(ListNode** pHead){
+        if(pHead == NULL || *pHead == NULL)
+            return NULL;
+        ListNode *pPre = NULL;
+        ListNode *pCur = *pHead;
+        while(pCur != NULL){
+            ListNode *pNext = pCur->next;
+            bool needDelete = false;
+            if(pNext != NULL && pNext->val == pCur->val)
+                needDelete = true;
+            
+            if(!needDelete){
+                pPre = pCur;
+                pCur = pCur->next;
+            }else{
+                int value = pCur->val;
+                ListNode* DeleteNode = pCur;
+                while(DeleteNode != NULL && DeleteNode->val == value){
+                    pNext = DeleteNode->next;
+                    delete DeleteNode;
+                    DeleteNode = NULL;
+                    DeleteNode = pNext;
+                }
+                if(pPre == NULL)
+                    *pHead = pNext;
+                else
+                    pPre->next = pNext;
+                pCur = pNext;
+            }
+        }
+        return *pHead;
+    }
+};
