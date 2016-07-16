@@ -1,0 +1,67 @@
+题目描述
+
+请实现两个函数，分别用来序列化和反序列化二叉树。这里没有规定序列化的方式。 
+
+////利用stringstream相关函数进行实现
+/*
+struct TreeNode {
+    int val;
+    struct TreeNode *left;
+    struct TreeNode *right;
+    TreeNode(int x) :
+            val(x), left(NULL), right(NULL) {
+    }
+};
+*/
+class Solution
+{
+public:
+	char* Serialize(TreeNode *root)
+	{
+		stringstream Str;
+		Serialize(root,Str);
+		const char *c_Str = Str.str().c_str();
+		char *s = new char [strlen(c_Str)+1];
+		strcpy(s,c_Str);
+		return s;
+	}
+    void Serialize(TreeNode *root,stringstream& out)
+	{
+		if(root==nullptr)
+		{
+			out<<"$"<<endl;
+			return ;
+		}
+		out<<root->val<<endl;
+		Serialize(root->left,out);
+		Serialize(root->right,out);
+	}
+	TreeNode* Deserialize(char *str)
+	{
+		if(str==nullptr)
+			return nullptr;
+		stringstream ss(str);
+		return Deserialize(ss);
+	}
+		
+	TreeNode* Deserialize(stringstream& in)
+	{
+		int val;
+		if(getNumber(in,val))
+		{
+			TreeNode *p = new TreeNode(val);
+			p->left = Deserialize(in);
+			p->right = Deserialize(in);
+			return p;
+		}
+		return nullptr;
+	}
+	bool getNumber(stringstream& in,int& val)
+	{
+		char buf[32];
+		in>>buf;
+		if(buf[0]=='$') return false;
+		val = atoi(buf);
+		return true;
+	}
+};
