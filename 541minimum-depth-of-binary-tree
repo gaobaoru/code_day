@@ -1,0 +1,19 @@
+题目描述
+
+Given a binary tree, find its minimum depth.
+The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node. 
+
+//时间复杂度O（n）,空间复杂度O（logn）
+class Solution {
+public:
+    int run(TreeNode *root) {
+        return MinDepth(root, false);
+    }
+private:
+    static int MinDepth(const TreeNode* root, bool hasBrother){
+        if(!root) return hasBrother?INT_MAX : 0;
+        
+        return 1 + min(MinDepth(root->left, root->right != NULL) ,
+                      MinDepth(root->right, root->left != NULL));
+    }
+};
