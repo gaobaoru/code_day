@@ -4,7 +4,8 @@
 
 给定两棵二叉树的头结点A和B，请返回一个bool值，代表A中是否存在一棵同构于B的子树。
 /*
-*
+struct TreeNode {
+    int val;
     struct TreeNode *left;
     struct TreeNode *right;
     TreeNode(int x) :
