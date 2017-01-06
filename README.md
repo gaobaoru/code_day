@@ -1,6 +1,6 @@
 # code_day --- 程序员成长学习
 
-* 代码会持续整理更新
+**代码会持续整理更新**
 * 版权:  See [LICENSE](https://github.com/gaobaoru/code_day/blob/master/LICENSE)
 
 > 本内容由[godfrey](https://github.com/gaobaoru/code_day)编码整理完成，转载请注明出处。
