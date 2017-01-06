@@ -12,4 +12,4 @@ Coding题目网址 | Accepted代码仓库
 
 ###更多精彩内容，请关注公众号程序猿修炼之道(Programmer__monkey):
 
-![image](http://github.com/gaobaoru/code_day/blob/master/image/Programmer__monkey.ipg)
+![image](https://github.com/gaobaoru/code_day/blob/master/image/Programmer__monkey.jpg)
