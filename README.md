@@ -75,10 +75,10 @@ Coding题目网址 | Accepted代码仓库
 [剑指offer第六十五题](https://www.nowcoder.com/practice/c61c6999eecb4b8f88a98f66b273a3cc?tpId=13&tqId=11218&tPage=4&rp=3&ru=%2Fta%2Fcoding-interviews&qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking)|[矩阵中的路径](https://github.com/gaobaoru/code_day/blob/master/jianzhi-offer/%E5%89%9166%20%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84.cpp)
 [剑指offer第六十六题](https://www.nowcoder.com/practice/6e5207314b5241fb83f2329e89fdecc8?tpId=13&tqId=11219&tPage=4&rp=3&ru=%2Fta%2Fcoding-interviews&qru=%2Fta%2Fcoding-interviews%2Fquestion-ranking)|[机器人的运动范围](https://github.com/gaobaoru/code_day/blob/master/jianzhi-offer/%E5%89%9167%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4.cpp)
 
-##剑指offer编程实践
+##Leetcode 编程实践
 Coding题目网址 | Accepted代码仓库
 ------- | -------
-[Leetcode question one](https://www.nowcoder.com/practice/e08819cfdeb34985a8de9c4e6562e724?tpId=46&tqId=29030&tPage=1&rp=1&ru=/ta/leetcode&qru=/ta/leetcode/question-ranking)|[Minimum depth of binary tree](https://github.com/gaobaoru/code_day/blob/master/leetcode/541minimum-depth-of-binary-tree)
+[Leetcode question one](https://www.nowcoder.com/practice/e08819cfdeb34985a8de9c4e6562e724?tpId=46&tqId=29030&tPage=1&rp=1&ru=/ta/leetcode&qru=/ta/leetcode/question-ranking)|[Minimum Depth of Binary Tree](https://github.com/gaobaoru/code_day/blob/master/leetcode/541minimum-depth-of-binary-tree)
 
 ###更多精彩内容，请关注公众号程序猿修炼之道(Programmer__monkey):
 
