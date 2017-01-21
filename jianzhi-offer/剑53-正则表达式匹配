@@ -1,0 +1,33 @@
+题目描述
+
+请实现一个函数用来匹配包括'.'和'*'的正则表达式。模式中的字符'.'表示任意一个字符，而'*'表示它前面的字符可以出现任意次（包含0次）。
+在本题中，匹配是指字符串的所有字符匹配整个模式。例如，字符串"aaa"与模式"a.a"和"ab*ac*a"匹配，但是与"aa.a"和"ab*a"均不匹配 
+
+//主要处理*号的情况，当字符串匹配的时候，在字符串向后移动一个字符的时候，模式串有两个选择：移动两个或者不变
+class Solution {
+public:
+    bool match(char* str, char* pattern)
+    {
+    	if(str == NULL || pattern == NULL) return false;
+            
+        return MatchRecursive(str, pattern);
+    }
+    
+    bool MatchRecursive(char* str, char* pattern){
+        if(*str == '\0' && *pattern == '\0')
+            return true;
+        if(*str != '\0' && *pattern == '\0')
+            return false;
+        if(*(pattern+1) == '*'){
+            if(*str == *pattern || (*pattern == '.' && *str != '\0'))
+                return MatchRecursive(str+1, pattern+2) || MatchRecursive(str+1, pattern)
+                		|| MatchRecursive(str, pattern+2);
+            else
+                return MatchRecursive(str, pattern+2);
+        }
+        if(*str == *pattern || (*pattern == '.' && *str != '\0'))
+            return MatchRecursive(str+1, pattern+1);
+        
+        return false;
+    }
+};

@@ -1,0 +1,50 @@
+题目描述
+
+将一个字符串转换成一个整数，要求不能使用字符串转换整数的库函数
+
+////需要考虑很多特殊情况，比如字符串为空，正负号，整数越界问题，全局变量标识是否为0的问题
+class Solution {
+public:
+    int StrToInt(string str) {
+        int num = 0;
+        g_status = false;
+        int length = str.length();
+        int index = 0;
+        bool negFlag = false;
+        if(!str.empty() && str[index] != '\0'){
+            if(str[index] == '+')
+                index++;
+            else if(str[index] == '-'){
+                negFlag = true;
+                index++;
+            }
+            if(str[index] != '\0'){
+                num = StrToIntNum(str, index, negFlag);
+            }
+        }
+        return num;
+    }
+private:
+    bool g_status;
+    int StrToIntNum(string &str, int index, bool negFlag){
+        long long num = 0;
+        while(str[index] != '\0'){
+            if(str[index] >= '0' && str[index] <= '9'){
+                int flag = negFlag ? -1 : 1;
+                num = num * 10 + flag * (str[index] - '0');
+                if((!negFlag && num > 0x7FFFFFFF) || (negFlag && num < (signed int)0x80000000)){
+                    num = 0;
+                    break;
+                }
+                index++;
+            }
+            else{
+                num = 0;
+                break;
+            }
+        }
+        if(str[index] == '\0')
+            g_status = true;
+        return (int)num;
+    }
+};

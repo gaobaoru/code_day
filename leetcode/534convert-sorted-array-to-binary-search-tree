@@ -1,0 +1,33 @@
+题目描述
+
+Given an array where elements are sorted in ascending order, convert it to a height balanced BST. 
+
+
+/**
+ * Definition for binary tree
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+ //时间复杂度O（n）,空间复杂度O（logn）
+class Solution {
+public:
+    TreeNode *sortedArrayToBST(vector<int> &num) {
+    	return SortedArrayToBST(num.begin(), num.end());    
+    }
+    template<typename RandomIterator>
+    TreeNode* SortedArrayToBST(RandomIterator first, RandomIterator last) {
+        const auto length = distance(first, last);
+        if(length <= 0) return nullptr;
+        
+        auto mid = first + length / 2;
+        TreeNode* root = new TreeNode(*mid);
+        root->left = SortedArrayToBST(first, mid);
+        root->right = SortedArrayToBST(mid+1, last);
+        
+        return root;
+    }
+};
